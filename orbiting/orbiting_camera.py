@@ -12,6 +12,7 @@ import copy
 from ...try_bpy import bpy, mathutils 
 from ..base_control import PreProcessControl
 from ...rendering.utils import lookat_viewport
+from math import cos, sin, pi
 
 
 class OrbitingCameraControl(PreProcessControl):
@@ -32,7 +33,7 @@ class OrbitingCameraControl(PreProcessControl):
             'object_x': (-1, 1),
             'object_y': (-1, 1),
             'object_z': (-1, 1),
-            'radius': (3, 10),
+            'radius': (0.5, 10),
             'phi': (-pi, pi),
             'theta': (-pi, pi),
         }
@@ -51,25 +52,25 @@ class OrbitingCameraControl(PreProcessControl):
         obj.location = (args['object_x'], args['object_y'], args['object_z'])
 
         #change camera location
-        camera.location = getCameraPosition(obj.location[0],
+        camera.location = self.getCameraPosition(obj.location[0],
                                             obj.location[1],
                                             obj.location[2],
                                             args['radius'],
                                             args['phi'],
                                             args['theta'])
         
-            #change camera direction
-            #direction of camera
-            direction = cube.location-camera.location
-            # point the cameras '-Z' and use its 'Y' as up
-            rot_quat = direction.to_track_quat('-Z', 'Y')
-            # assume we're using euler rotation
-            camera.rotation_euler = rot_quat.to_euler()
+        #change camera direction
+        #direction of camera
+        direction = obj.location-camera.location
+        # point the cameras '-Z' and use its 'Y' as up
+        rot_quat = direction.to_track_quat('-Z', 'Y')
+        # assume we're using euler rotation
+        camera.rotation_euler = rot_quat.to_euler()
 
     def unapply(self, context: Dict[str, Any]) -> None:
         pass
     
-    def getCameraPosition(object_x, object_y, object_z, rho, phi, theta):
+    def getCameraPosition(self, object_x, object_y, object_z, rho, phi, theta):
         camera_x = object_x + (rho * sin(phi) * cos(theta))
         camera_y = object_y + (rho * sin(phi) * sin(theta))
         camera_z = object_z + (rho * cos(phi))
