@@ -20,7 +20,7 @@ render_args:
   samples: 16
 policy:
   module: "threedb.policies.grid_search"
-  samples_per_dim: 10
+  samples_per_dim: 5
 logging:
   logger_modules:
     - "threedb.result_logging.image_logger"

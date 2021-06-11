@@ -1,0 +1,26 @@
+base_config: "./base.yaml"
+render_args:
+  engine: 'threedb.rendering.render_blender'
+  resolution: 256
+  samples: 16
+controls:
+  - module: threedb.controls.blender.position
+    offset_x: 0.02
+    offset_y: 0.02
+    offset_z: 0.3
+  - module: "threedb.controls.blender.orientation"
+    rotation_x: 0.
+    rotation_y: 0.
+    rotation_z: 0.
+  - module: "threedb.controls.blender.rain"
+    n_layers_of_rain: [1, 2, 3]
+    speed: (0.3, 0.9)
+    drop_size: (0.1, 0.3)
+  - module: "threedb.controls.blender.denoiser"
+  - module: "threedb.controls.blender.camera"
+    view_point_x: 0.
+    view_point_y: 0.
+    view_point_z: 0.
+    zoom_factor: 1.
+    aperture: 5.
+    focal_length: 100.
