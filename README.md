@@ -1,7 +1,9 @@
 # 3db
+Custom control modules for 3db. (Before using any of the custom controls below, make sure 3db is installed.)
+Link to 3db repository: https://github.com/3db/3db
 
 ## 1. Orbiting 
-Orbits the camera around the object. User only has to set the radius, phi and theta. 
+Pre-processing control module that orbits the camera around the object. User only has to set the radius, phi and theta. 
 
 Varying phi             |  Varying theta
 :-------------------------:|:-------------------------:
@@ -36,7 +38,7 @@ python -m threedboard results
 ```
 
 ## 2. Rain
-Post-process rain onto render images. 
+Post-processing control module that adds rain to rendered images. 
 
 Varying speed             |  Varying drop size   |  Varying layers of rain
 :-------------------------:|:-------------------------:|:-------------------------:
@@ -73,4 +75,14 @@ threedb_workers 1 ../../data 5555
 conda activate threedb
 cd rain/unit_test
 python -m threedboard results
+```
+
+## Citation
+```
+@inproceedings{leclerc2021three,
+    title={3DB: A Framework for Debugging Computer Vision Models},
+    author={Guillaume Leclerc, Hadi Salman, Andrew Ilyas, Sai Vemprala, Logan Engstrom, Vibhav Vineet, Kai Xiao, Pengchuan Zhang, Shibani Santurkar, Greg Yang, Ashish Kapoor, Aleksander Madry},
+    year={2021},
+    booktitle={Arxiv preprint arXiv:2106.03805}
+}
 ```
