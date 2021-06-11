@@ -35,7 +35,6 @@ python -m threedboard results
 ```
 pip install git+https://github.com/aleju/imgaug.git
 pip install imagecorruptions
-
 ```
 2. Include rain.py in /envs/threedb/lib/python3.7/site-packages/threedb/controls/blender/
 3. Include threedb.controls.blender.rain in the yaml config file

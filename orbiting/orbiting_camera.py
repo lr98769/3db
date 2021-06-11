@@ -12,7 +12,7 @@ import copy
 from ...try_bpy import bpy, mathutils 
 from ..base_control import PreProcessControl
 from ...rendering.utils import lookat_viewport
-from math import cos, sin, pi
+from math import cos, sin, pi, radians
 
 
 class OrbitingCameraControl(PreProcessControl):
@@ -66,6 +66,9 @@ class OrbitingCameraControl(PreProcessControl):
         rot_quat = direction.to_track_quat('-Z', 'Y')
         # assume we're using euler rotation
         camera.rotation_euler = rot_quat.to_euler()
+        #when camera is directly on top
+        if ((args['phi']==0) or (args['phi']==pi)):
+            camera.rotation_euler[2] = radians(90) +args['theta']
 
     def unapply(self, context: Dict[str, Any]) -> None:
         pass
