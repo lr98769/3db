@@ -8,7 +8,7 @@ Pre-processing control module that orbits the camera around the object. User onl
 
 Varying phi             |  Varying theta
 :-------------------------:|:-------------------------:
-![alt text](https://github.com/lr98769/3db/blob/dev/orbiting/unit_test/dashboard_phi.gif)  |  ![alt text](https://github.com/lr98769/3db/blob/dev/orbiting/unit_test/dashboard_theta.gif)
+![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/orbiting/gifs/dashboard_phi.gif)  |  ![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/orbiting/gifs/dashboard_theta.gif)
 
 **To use the orbiting module:**
 1. Include custom_controls.orbiting_camera in the yaml config file
@@ -38,7 +38,7 @@ Post-processing control module that adds rain to rendered images.
 
 Varying speed             |  Varying drop size   |  Varying layers of rain
 :-------------------------:|:-------------------------:|:-------------------------:
-![alt text](https://github.com/lr98769/3db/blob/dev/rain/unit_test/dashboard_speed.gif)  |  ![alt text](https://github.com/lr98769/3db/blob/dev/rain/unit_test/dashboard_drop_size.gif)   |   ![alt text](https://github.com/lr98769/3db/blob/dev/rain/unit_test/dashboard_layers.gif)
+![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/rain/gifs/dashboard_speed.gif)  |  ![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/rain/gifs/dashboard_drop_size.gif)   |   ![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/rain/gifs/dashboard_layers.gif)
 
 **To use the rain module:**
 1. Install the imgaug package with the following lines of code:
