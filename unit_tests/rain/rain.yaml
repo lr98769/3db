@@ -12,7 +12,7 @@ controls:
     rotation_x: 0.
     rotation_y: 0.
     rotation_z: 0.
-  - module: "threedb.controls.blender.rain"
+  - module: "custom_controls.rain"
     n_layers_of_rain: [1, 2, 3]
     speed: (0.3, 0.9)
     drop_size: (0.1, 0.3)

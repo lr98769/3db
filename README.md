@@ -11,7 +11,7 @@ Varying phi             |  Varying theta
 ![alt text](https://github.com/lr98769/3db/blob/dev/orbiting/unit_test/dashboard_phi.gif)  |  ![alt text](https://github.com/lr98769/3db/blob/dev/orbiting/unit_test/dashboard_theta.gif)
 
 **To use the orbiting module:**
-1. Include threedb.controls.blender.orbiting_camera in the yaml config file
+1. Include custom_controls.orbiting_camera in the yaml config file
 
 **To run unit test for orbiting module:**
 1. Download Primer data from (https://www.dropbox.com/s/2gdprhp8jvku4zf/threedb_starting_kit.tar.gz?dl=0) and place "studioX_Stage.blend" in data/blender_environments (images generated may be different due to rotation and transformation of the background model)
@@ -20,20 +20,17 @@ Varying phi             |  Varying theta
 *Run in first terminal*
 ```
 conda activate threedb
-cd orbiting/unit_test
-threedb_master ../../data orbit_around.yaml results 5555
+threedb_master data unit_tests/orbiting/orbit_around.yaml unit_tests/orbiting/results 5555
 ```
 *Run in second terminal*
 ```
 conda activate threedb
-cd orbiting/unit_test
-threedb_workers 1 ../../data 5555
+threedb_workers 1 data 5555
 ```
 *To analyse:*
 ```
 conda activate threedb
-cd orbiting/unit_test
-python -m threedboard results
+python -m threedboard unit_tests/orbiting/results
 ```
 
 ## 2. Rain
@@ -49,7 +46,7 @@ Varying speed             |  Varying drop size   |  Varying layers of rain
 pip install git+https://github.com/aleju/imgaug.git
 pip install imagecorruptions
 ```
-2. Include threedb.controls.blender.rain in the yaml config file
+2. Include custom_controls.rain in the yaml config file
 
 **To run unit test for rain module:**
 1. Install the imgaug package with the following lines of code:
@@ -63,20 +60,17 @@ pip install imagecorruptions
 *Run in first terminal*
 ```
 conda activate threedb
-cd rain/unit_test
-threedb_master ../../data rain.yaml results2 5555
+threedb_master data unit_tests/rain/rain.yaml unit_tests/rain/results 5555
 ```
 *Run in second terminal*
 ```
 conda activate threedb
-cd rain/unit_test
-threedb_workers 1 ../../data 5555
+threedb_workers 1 data 5555
 ```
 *To analyse:*
 ```
 conda activate threedb
-cd rain/unit_test
-python -m threedboard results
+python -m threedboard unit_tests/rain/results
 ```
 
 ## Citation

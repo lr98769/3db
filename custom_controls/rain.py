@@ -10,7 +10,7 @@ from typing import Any, Dict
 import numpy as np
 import torch as ch
 import imgaug.augmenters as iaa
-from ..base_control import PostProcessControl
+from threedb.controls.base_control import PostProcessControl
 
 class RainControl(PostProcessControl):
     """
