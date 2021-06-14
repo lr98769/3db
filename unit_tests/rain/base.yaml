@@ -1,6 +1,6 @@
 inference:
   module: 'torchvision.models'
-  label_map: '../../resources/imagenet_mapping.json'
+  label_map: 'resources/imagenet_mapping.json'
   class: 'resnet18'
   output_shape: [1000]
   normalization:
@@ -12,7 +12,7 @@ inference:
 evaluation:
   module: 'threedb.evaluators.classification'
   args:
-    classmap_path: '../../resources/ycb_to_IN.json'
+    classmap_path: 'resources/ycb_to_IN.json'
     topk: 1
 render_args:
   engine: 'threedb.rendering.render_blender'
@@ -20,7 +20,7 @@ render_args:
   samples: 16
 policy:
   module: "threedb.policies.grid_search"
-  samples_per_dim: 10
+  samples_per_dim: 5
 logging:
   logger_modules:
     - "threedb.result_logging.image_logger"

@@ -9,9 +9,9 @@ Control the orbiting camera.
 from typing import Any, Dict
 
 import copy
-from ...try_bpy import bpy, mathutils 
-from ..base_control import PreProcessControl
-from ...rendering.utils import lookat_viewport
+from threedb.try_bpy import bpy, mathutils 
+from threedb.controls.base_control import PreProcessControl
+from threedb.rendering.utils import lookat_viewport
 from math import cos, sin, pi, radians
 
 
