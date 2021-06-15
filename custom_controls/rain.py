@@ -1,5 +1,5 @@
 """
-threedb.controls.blender.rain
+custom_controls.rain
 ====================================
 
 Apply rain to renderings. 

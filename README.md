@@ -73,6 +73,36 @@ conda activate threedb
 python -m threedboard unit_tests/rain/results
 ```
 
+## 3. Sun
+Pre-processing control module that adds a sun into the environment and modifies the sun's properties.  
+
+Varying elevation             |  Varying rotation
+:-------------------------:|:-------------------------:
+![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/sun/gifs/dashboard_elevation.gif)  |  ![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/sun/gifs/dashboard_rotation.gif)
+
+**To use the sun module:**
+1. Include custom_controls.sun in the yaml config file
+
+**To run unit test for rain module:**
+1. Download Primer data from (https://www.dropbox.com/s/2gdprhp8jvku4zf/threedb_starting_kit.tar.gz?dl=0) and place "studioX_Stage.blend" in data/blender_environments (images generated may be different due to rotation and transformation of the background model)
+2. Run these two commands concurrently in different terminals (run threedb_master first)
+
+*Run in first terminal*
+```
+conda activate threedb
+threedb_master data unit_tests/sun/sun.yaml unit_tests/sun/results 5555
+```
+*Run in second terminal*
+```
+conda activate threedb
+threedb_workers 1 data 5555
+```
+*To analyse:*
+```
+conda activate threedb
+python -m threedboard unit_tests/sun/results
+```
+
 ## Citation
 ```
 @inproceedings{leclerc2021three,

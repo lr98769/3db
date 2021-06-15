@@ -1,5 +1,5 @@
 """
-threedb.controls.blender.orbiting_camera
+custom_controls.orbiting_camera
 ===============================
 
 Control the orbiting camera. 
