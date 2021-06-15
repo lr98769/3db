@@ -78,7 +78,7 @@ Pre-processing control module that adds a sun into the environment and modifies 
 
 Varying elevation             |  Varying rotation
 :-------------------------:|:-------------------------:
-![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/sun/gifs/dashboard_elevataion.gif)  |  ![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/sun/gifs/dashboard_rotation.gif)
+![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/sun/gifs/dashboard_elevation.gif)  |  ![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/sun/gifs/dashboard_rotation.gif)
 
 **To use the sun module:**
 1. Include custom_controls.sun in the yaml config file
