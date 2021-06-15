@@ -61,8 +61,14 @@ class SunControl(PreProcessControl):
         #get world nodes
         world_nodes = bpy.context.scene.world.node_tree.nodes
 
-        #make sky texture nodes
-        sky_node = world_nodes.new(type="ShaderNodeTexSky")
+        if (world_nodes.get("Sky Texture") == None):
+            #make sky texture nodes
+            sky_node = world_nodes.new(type="ShaderNodeTexSky")
+            background_node = world_nodes["Background"]
+            #add link background node to sky texture node
+            bpy.data.worlds['World'].node_tree.links.new(background_node.inputs[0], sky_node.outputs[0])
+
+        sky_node = world_nodes.get("Sky Texture")
 
         #set attributes of sky texture node
         sky_node.sun_size = args['size']
@@ -79,9 +85,6 @@ class SunControl(PreProcessControl):
 
         #change brightness of the sky
         background_node.inputs[1].default_value = args['background_strength']
-
-        #add link background node to sky texture node
-        bpy.data.worlds['World'].node_tree.links.new(background_node.inputs[0], sky_node.outputs[0])
 
     def unapply(self, context: Dict[str, Any]) -> None:
         pass
