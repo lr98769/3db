@@ -103,6 +103,36 @@ conda activate threedb
 python -m threedboard unit_tests/sun/results
 ```
 
+## 4. Haze
+Pre-processing control module that adds a haze into the environment.  
+
+Varying Factor             |
+:-------------------------:|
+![alt text](https://github.com/lr98769/3db/blob/dev/unit_tests/haze/gifs/dashboard_fac.gif)  |  
+
+**To use the sun module:**
+1. Include custom_controls.haze in the yaml config file
+
+**To run unit test for rain module:**
+1. Download Primer data from (https://www.dropbox.com/s/2gdprhp8jvku4zf/threedb_starting_kit.tar.gz?dl=0) and place "studioX_Stage.blend" in data/blender_environments (images generated may be different due to rotation and transformation of the background model)
+2. Run these two commands concurrently in different terminals (run threedb_master first)
+
+*Run in first terminal*
+```
+conda activate threedb
+threedb_master data unit_tests/haze/haze.yaml unit_tests/haze/results 5555
+```
+*Run in second terminal*
+```
+conda activate threedb
+threedb_workers 1 data 5555
+```
+*To analyse:*
+```
+conda activate threedb
+python -m threedboard unit_tests/haze/results
+```
+
 ## Citation
 ```
 @inproceedings{leclerc2021three,
