@@ -18,7 +18,7 @@ class RainControl(PostProcessControl):
 
     Discrete Dimensions:
 
-    - ``n_layers_of_rain``: Number of layers of rain. (range: ``{1, 2, 3}``)
+    - ``n_layers_of_rain``: Number of layers of rain. (range: ``{0, 1, 2, 3}``)
 
     Continuous Dimensions:
 
@@ -28,7 +28,7 @@ class RainControl(PostProcessControl):
     """
     def __init__(self, root_folder: str):
         discrete_dims = {
-            'n_layers_of_rain': [1, 2, 3],
+            'n_layers_of_rain': [0, 1, 2, 3],
         }
         continuous_dims = {
             'speed': (0, 1),
@@ -43,6 +43,10 @@ class RainControl(PostProcessControl):
         assert no_err, msg
 
         args = copy.copy(control_args)
+
+        if (args['n_layers_of_rain'] == 0):
+            return ch.from_numpy(render.numpy())
+
         img = render.numpy()
         img = img.transpose(1, 2, 0)
         img = (img * 255).astype('uint8')
