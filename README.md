@@ -133,6 +133,29 @@ conda activate threedb
 python -m threedboard unit_tests/haze/results
 ```
 
+## Combined
+Example of how all 4 modules can be used together.
+Analysis folder contains a jupter notebook with useful functions for model analysis.
+
+*Run in first terminal*
+```
+conda activate threedb
+threedb_master data combined/combined.yaml combined/results 5555
+```
+*Run in second terminal*
+```
+conda activate threedb
+threedb_workers 1 data 5555
+```
+*To analyse:*
+```
+conda activate threedb
+python -m threedboard combined/results
+```
+
+
+
+
 ## Citation
 ```
 @inproceedings{leclerc2021three,

@@ -1,2 +1,4 @@
 data/blender_environments/studioX_Stage.blend
 custom_controls/__pycache__
+combined/analysis/.ipynb_checkpoints
+.vscode
