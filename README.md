@@ -153,7 +153,22 @@ conda activate threedb
 python -m threedboard combined/results
 ```
 
-
+------------------------------------------------------------------------
+*Run in first terminal*
+```
+conda activate threedb
+threedb_master data test/combined.yaml test/results 5555
+```
+*Run in second terminal*
+```
+conda activate threedb
+threedb_workers 1 data 5555
+```
+*To analyse:*
+```
+conda activate threedb
+python -m threedboard test/results
+```
 
 
 ## Citation
