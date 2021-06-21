@@ -4,3 +4,7 @@ custom_model/__pycache__
 combined/analysis/.ipynb_checkpoints
 .vscode
 .ipynb_checkpoints
+changing_viewpoints/analysis/.ipynb_checkpoints
+changing_viewpoints/non_robust/results
+changing_viewpoints/robust/results
+changing_viewpoints/robust_models
