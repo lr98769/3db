@@ -153,11 +153,13 @@ conda activate threedb
 python -m threedboard combined/results
 ```
 
-------------------------------------------------------------------------
+## Testing Custom Models
+Example of how trained models can be easily loaded and evaluated with 3db. 
+
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data test/combined.yaml test/results 5555
+threedb_master data unit_tests/load_model/load_model.yaml unit_tests/load_model/results 5555
 ```
 *Run in second terminal*
 ```
@@ -167,7 +169,7 @@ threedb_workers 1 data 5555
 *To analyse:*
 ```
 conda activate threedb
-python -m threedboard test/results
+python -m threedboard unit_tests/load_model/results
 ```
 
 
