@@ -4,3 +4,9 @@ custom_model/__pycache__
 combined/analysis/.ipynb_checkpoints
 .vscode
 .ipynb_checkpoints
+changing_viewpoints/robust_models
+changing_viewpoints/cup/analysis/.ipynb_checkpoints
+changing_viewpoints/cup/non_robust/results/images
+changing_viewpoints/mug/analysis/.ipynb_checkpoints
+changing_viewpoints/mug/non_robust/results/images
+data_cup/blender_environments/studioX_Stage.blend
