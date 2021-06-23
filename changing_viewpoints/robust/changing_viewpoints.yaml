@@ -1,0 +1,28 @@
+base_config: "./base.yaml"
+render_args:
+  engine: 'threedb.rendering.render_blender'
+  resolution: 256
+  samples: 16
+controls:
+  - module: "threedb.controls.blender.orientation"
+    rotation_x: -1.57
+    rotation_y: 0.
+    rotation_z: 0.
+  - module: "custom_controls.orbiting_camera"
+    object_x: -0.5
+    object_y: 0
+    object_z: 0.268
+    radius: 0.3
+    phi: (0, 1.57)
+    theta: (-3.14, 3.14)
+  - module: "custom_controls.sun"
+    size: 3.
+    intensity: 1.
+    elevation: 1.57
+    rotation: 0.
+    altitude: 1.
+    air: 3.
+    dust: 1.
+    ozone: 1.
+    background_strength: 0.1
+  - module: "threedb.controls.blender.denoiser"
