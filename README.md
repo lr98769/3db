@@ -266,6 +266,54 @@ conda activate threedb
 python -m threedboard ./changing_viewpoints/cup/robust/results 
 ```
 
+## Changing Viewpoints
+Investigating if pixel perturbation robust models perform better on images of cups with varying viewpoints.
+All robust models were downloaded from https://github.com/MadryLab/robustness
+
+Setup:
+1. Install robustness python module
+2. Download imagent_l2_3_0.pt to ./changing_viewpoints/robust_models from https://github.com/MadryLab/robustness
+
+**To establish the baseline performance of a non-robust model:**
+Evaluate the performance of a non-robust resnet50 model from torchvision
+
+*Run in first terminal*
+```
+conda activate threedb
+threedb_master data ./changing_viewpoints/non_robust/changing_viewpoints.yaml ./changing_viewpoints/non_robust/results 5555
+```
+*Run in second terminal*
+```
+conda activate threedb
+threedb_workers 1 data 5555
+```
+*To analyse:*
+```
+conda activate threedb
+python -m threedboard ./changing_viewpoints/non_robust/results 
+```
+
+**Evaluate performance of robust models:**
+Evaluate the performance of a robust resnet50 model
+
+Change the address to model in base.yaml to the address of the desired model to evaluate
+'''path_to_model: './changing_viewpoints/robust_models/change_model_name''''
+
+*Run in first terminal*
+```
+conda activate threedb
+threedb_master data ./changing_viewpoints/robust/changing_viewpoints.yaml ./changing_viewpoints/robust/results 5555
+```
+*Run in second terminal*
+```
+conda activate threedb
+threedb_workers 1 data 5555
+```
+*To analyse:*
+```
+conda activate threedb
+python -m threedboard ./changing_viewpoints/non_robust/results 
+```
 
 ## Citation
 ```
