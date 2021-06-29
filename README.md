@@ -182,7 +182,9 @@ Investigating if pixel perturbation robust models perform better on images of mu
 All robust models were downloaded from https://github.com/MadryLab/robustness
 
 **To establish the baseline performance of a non-robust model:**
+
 Evaluate the performance of a non-robust resnet50 model from torchvision
+
 *Run in first terminal*
 ```
 conda activate threedb
@@ -199,7 +201,9 @@ conda activate threedb
 python -m threedboard ./experiments/changing_viewpoints/cup_mug/non_robust/results
 ```
 **Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
+
 run_all.sh automates the evaluation of all 3 robust models and the renaming of detail.log files.
+
 Run the following command: (Takes ~10 minutes per model) 
 ```
 cd 3DB
@@ -207,10 +211,13 @@ bash experiments/changing_viewpoints/cup_mug/robust/run_all.sh
 ```
 ### 2. Changing Weather Conditions
 Investigating if pixel perturbation robust models perform better on images of mugs and cups in different weather conditions eg. sun position, haze, rain.
+
 All robust models were downloaded from https://github.com/MadryLab/robustness
 
 **To establish the baseline performance of a non-robust model:**
+
 Evaluate the performance of a non-robust resnet50 model from torchvision
+
 *Run in first terminal*
 ```
 conda activate threedb
@@ -227,7 +234,9 @@ conda activate threedb
 python -m threedboard ./experiments/changing_weather/cup_mug/non_robust/results
 ```
 **Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
+
 run_all.sh automates the evaluation of all 3 robust models and the renaming of detail.log files.
+
 Run the following command: (Takes ~30 minutes per model) 
 ```
 cd 3DB
