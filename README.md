@@ -287,12 +287,12 @@ All robust models were downloaded from https://github.com/MadryLab/robustness
 
 **To establish the baseline performance of a non-robust model:**
 
-Evaluate the performance of a non-robust resnet50 model from torchvision
+Evaluate the performance of a non-robust resnet50 model from torchvision (15min per ML model-3D model pair)
 
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data_new ./experiments/changing_weather/cup_mug/non_robust/changing_weather.yaml ./experiments/changing_weather/cup_mug/non_robust/results 5555
+threedb_master data_new ./experiments/changing_weather/cup_mug/non_robust/changing_weather.yaml ./experiments/changing_weather/cup_mug/non_robust/results2 5555
 ```
 *Run in second terminal*
 ```
@@ -302,13 +302,13 @@ threedb_workers 1 data_new 5555
 *To analyse:*
 ```
 conda activate threedb
-python -m threedboard ./experiments/changing_weather/cup_mug/non_robust/results
+python -m threedboard ./experiments/changing_weather/cup_mug/non_robust/results2
 ```
 **Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
 
 run_all.sh automates the evaluation of all 3 robust models and the renaming of detail.log files.
 
-Run the following command: (Takes ~45 minutes per 3D model) 
+Run the following command: (Takes ~45 minutes per 3D model) (Takes ~30 minutes per ML model)
 ```
 cd 3DB
 bash experiments/changing_weather/cup_mug/robust/run_all_new.sh
