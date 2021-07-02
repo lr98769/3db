@@ -53,7 +53,8 @@ class RainControl(PostProcessControl):
 
         aug = iaa.Rain( nb_iterations = args['n_layers_of_rain'], 
                         speed = args['speed'], 
-                        drop_size = args['drop_size'])
+                        drop_size = args['drop_size'],
+                        seed= 1)
 
         augmented = aug.augment_image(img[:,:,:3])
         augmented = np.concatenate((augmented, img[:, :, 3:4]), axis=2)
