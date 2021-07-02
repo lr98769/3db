@@ -6,3 +6,5 @@ combined/analysis/.ipynb_checkpoints
 .ipynb_checkpoints
 robust_models
 data_all/blender_environments/studioX_Stage.blend
+data_new/blender_environments/studioX_Stage.blend
+data_new/blender_models/toygun.blend
