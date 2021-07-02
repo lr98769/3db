@@ -10,11 +10,11 @@ do
     mkdir -p ./experiments/changing_weather/cup_mug/robust/results
 
     #run master
-    threedb_master data_cup ./experiments/changing_weather/cup_mug/robust/changing_weather.yaml ./experiments/changing_weather/cup_mug/robust/results 5555 &  PIDM=$!
+    threedb_master data_all ./experiments/changing_weather/cup_mug/robust/changing_weather.yaml ./experiments/changing_weather/cup_mug/robust/results 5555 &  PIDM=$!
 
 
     #run worker
-    gnome-terminal -- bash -c "source ~/miniconda3/etc/profile.d/conda.sh; conda activate threedb; threedb_workers 1 data_cup 5555;" &  PIDW=$!
+    gnome-terminal -- bash -c "source ~/miniconda3/etc/profile.d/conda.sh; conda activate threedb; threedb_workers 1 data_all 5555;" &  PIDW=$!
 
     #concurrently
     wait $PIDM

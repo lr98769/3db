@@ -188,12 +188,12 @@ Evaluate the performance of a non-robust resnet50 model from torchvision
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data_cup ./experiments/changing_viewpoints/cup_mug/non_robust/changing_viewpoints.yaml ./experiments/changing_viewpoints/cup_mug/non_robust/results 5555
+threedb_master data_all ./experiments/changing_viewpoints/cup_mug/non_robust/changing_viewpoints.yaml ./experiments/changing_viewpoints/cup_mug/non_robust/results 5555
 ```
 *Run in second terminal*
 ```
 conda activate threedb
-threedb_workers 1 data_cup 5555
+threedb_workers 1 data_all 5555
 ```
 *To analyse:*
 ```
@@ -221,12 +221,12 @@ Evaluate the performance of a non-robust resnet50 model from torchvision
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data_cup ./experiments/changing_weather/cup_mug/non_robust/changing_weather.yaml ./experiments/changing_weather/cup_mug/non_robust/results 5555
+threedb_master data_all ./experiments/changing_weather/cup_mug/non_robust/changing_weather.yaml ./experiments/changing_weather/cup_mug/non_robust/results 5555
 ```
 *Run in second terminal*
 ```
 conda activate threedb
-threedb_workers 1 data_cup 5555
+threedb_workers 1 data_all 5555
 ```
 *To analyse:*
 ```
@@ -247,72 +247,6 @@ bash experiments/changing_weather/cup_mug/robust/run_all.sh
 1. If you encounter this bug, `Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!`, find models_utils.py in the robustness package and comment out `model = model.cuda()` in line 110.
 2. If you use anaconda instead of miniconda3, replace "~/miniconda3/etc/profile.d/conda.sh"  in line 17 of run_all.sh with the correct directory to conda.sh
 
-
-### 1. Changing Viewpoints
-Investigating if pixel perturbation robust models perform better on images of mugs and cups with varying viewpoints.
-All robust models were downloaded from https://github.com/MadryLab/robustness
-
-**To establish the baseline performance of a non-robust model:**
-
-Evaluate the performance of a non-robust resnet50 model from torchvision
-
-*Run in first terminal*
-```
-conda activate threedb
-threedb_master data_new ./experiments/changing_viewpoints/cup_mug/non_robust/changing_viewpoints.yaml ./experiments/changing_viewpoints/cup_mug/non_robust/results2 5555
-```
-*Run in second terminal*
-```
-conda activate threedb
-threedb_workers 1 data_new 5555
-```
-*To analyse:*
-```
-conda activate threedb
-python -m threedboard ./experiments/changing_viewpoints/cup_mug/non_robust/results2
-```
-**Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
-
-run_all.sh automates the evaluation of all 3 robust models and the renaming of detail.log files.
-
-Run the following command: (Takes ~5 minutes per 3D model) 
-```
-cd 3DB
-bash experiments/changing_viewpoints/cup_mug/robust/run_all_new.sh
-```
-### 2. Changing Weather Conditions
-Investigating if pixel perturbation robust models perform better on images of mugs and cups in different weather conditions eg. sun position, haze, rain.
-
-All robust models were downloaded from https://github.com/MadryLab/robustness
-
-**To establish the baseline performance of a non-robust model:**
-
-Evaluate the performance of a non-robust resnet50 model from torchvision (15min per ML model-3D model pair)
-
-*Run in first terminal*
-```
-conda activate threedb
-threedb_master data_new ./experiments/changing_weather/cup_mug/non_robust/changing_weather.yaml ./experiments/changing_weather/cup_mug/non_robust/results2 5555
-```
-*Run in second terminal*
-```
-conda activate threedb
-threedb_workers 1 data_new 5555
-```
-*To analyse:*
-```
-conda activate threedb
-python -m threedboard ./experiments/changing_weather/cup_mug/non_robust/results2
-```
-**Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
-
-run_all.sh automates the evaluation of all 3 robust models and the renaming of detail.log files.
-
-Run the following command: (Takes ~45 minutes per 3D model) (Takes ~30 minutes per ML model)
-```
-cd 3DB
-bash experiments/changing_weather/cup_mug/robust/run_all_new.sh
-```
 
 
 

@@ -4,6 +4,5 @@ custom_model/__pycache__
 combined/analysis/.ipynb_checkpoints
 .vscode
 .ipynb_checkpoints
-data_cup/blender_environments/studioX_Stage.blend
 robust_models
-data_new/blender_environments/studioX_Stage.blend
+data_all/blender_environments/studioX_Stage.blend
