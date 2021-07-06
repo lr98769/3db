@@ -315,6 +315,38 @@ cd 3DB
 bash experiments/changing_weather/cup_mug/robust/run_all_new.sh
 ```
 
+## Tug boat
+### 1. Changing Viewpoints
+Investigating if pixel perturbation robust models perform better on images of mugs and cups with varying viewpoints.
+All robust models were downloaded from https://github.com/MadryLab/robustness
+
+**To establish the baseline performance of a non-robust model:**
+
+Evaluate the performance of a non-robust resnet50 model from torchvision
+
+*Run in first terminal*
+```
+conda activate threedb
+threedb_master data_tugboat tugboat/changing_viewpoints/non_robust/changing_viewpoints.yaml tugboat/changing_viewpoints/non_robust/results 5555
+```
+*Run in second terminal*
+```
+conda activate threedb
+threedb_workers 1 data_tugboat 5555
+```
+*To analyse:*
+```
+conda activate threedb
+python -m threedboard tugboat/changing_viewpoints/non_robust/results
+```
+**Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
+
+run_all.sh automates the evaluation of all 3 robust models and the renaming of detail.log files.
+
+Run the following command: (Takes ~5 minutes per 3D model-ML) 
+```
+cd 3DB
+bash experiments/changing_viewpoints/cup_mug/robust/run_all_new.sh
 
 
 
