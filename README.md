@@ -276,7 +276,7 @@ python -m threedboard ./experiments/changing_viewpoints/cup_mug/non_robust/resul
 
 run_all.sh automates the evaluation of all 3 robust models and the renaming of detail.log files.
 
-Run the following command: (Takes ~5 minutes per 3D model-ML model pair) 
+Run the following command: (Takes ~5 minutes per 3D model-ML) 
 ```
 cd 3DB
 bash experiments/changing_viewpoints/cup_mug/robust/run_all_new.sh
