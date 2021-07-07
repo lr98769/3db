@@ -24,6 +24,7 @@ class RainControl(PostProcessControl):
 
     - ``speed``: Length of rain streaks. (range: ``[0.1, 0.9]``) (Recommended: ``[0.3, 0.9]``)
     - ``drop_size``: Width of rain streaks. (range: ``[0.1, 0.9]``) (Recommended: ``[0.1, 0.3]``)
+    - ``seed``: Set seed for rain generation (range: ``[1, 1000]``) (Only integer values)
 
     """
     def __init__(self, root_folder: str):
@@ -33,6 +34,7 @@ class RainControl(PostProcessControl):
         continuous_dims = {
             'speed': (0, 1),
             'drop_size': (0.1, 1),
+            'seed': (1, 1000)
         }
         super().__init__(root_folder,
                          discrete_dims=discrete_dims, 
@@ -54,7 +56,7 @@ class RainControl(PostProcessControl):
         aug = iaa.Rain( nb_iterations = args['n_layers_of_rain'], 
                         speed = args['speed'], 
                         drop_size = args['drop_size'],
-                        seed= 1)
+                        seed= args['seed'])
 
         augmented = aug.augment_image(img[:,:,:3])
         augmented = np.concatenate((augmented, img[:, :, 3:4]), axis=2)

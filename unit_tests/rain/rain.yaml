@@ -16,6 +16,7 @@ controls:
     n_layers_of_rain: [1, 2, 3]
     speed: (0.3, 0.9)
     drop_size: (0.1, 0.3)
+    seed: 1
   - module: "threedb.controls.blender.denoiser"
   - module: "threedb.controls.blender.camera"
     view_point_x: 0.
