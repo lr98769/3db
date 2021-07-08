@@ -347,6 +347,7 @@ Run the following command: (Takes ~5 minutes per 3D model-ML)
 ```
 cd 3DB
 bash experiments/changing_viewpoints/cup_mug/robust/run_all_new.sh
+```
 
 ### 2. Changing Weather Conditions
 Investigating if pixel perturbation robust models perform better on images of mugs and cups in different weather conditions eg. sun position, haze, rain.
