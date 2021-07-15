@@ -188,7 +188,7 @@ Evaluate the performance of a non-robust resnet50 model from torchvision
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data_all ./experiments/changing_viewpoints/cup_mug/non_robust/changing_viewpoints.yaml ./experiments/changing_viewpoints/cup_mug/non_robust/results 5555
+threedb_master data_all ./experiments/changing_viewpoints/ten_objects/non_robust/changing_viewpoints.yaml ./experiments/changing_viewpoints/ten_objects/non_robust/results 5555
 ```
 *Run in second terminal*
 ```
@@ -198,7 +198,7 @@ threedb_workers 1 data_all 5555
 *To analyse:*
 ```
 conda activate threedb
-python -m threedboard ./experiments/changing_viewpoints/cup_mug/non_robust/results
+python -m threedboard ./experiments/changing_viewpoints/ten_objects/non_robust/results
 ```
 **Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
 
@@ -207,7 +207,7 @@ run_all.sh automates the evaluation of all 3 robust models and the renaming of d
 Run the following command: (Takes ~5 minutes per 3D model) 
 ```
 cd 3DB
-bash experiments/changing_viewpoints/cup_mug/robust/run_all.sh
+bash experiments/changing_viewpoints/ten_objects/robust/run_all.sh
 ```
 ### 2. Changing Weather Conditions
 Investigating if pixel perturbation robust models perform better on images of mugs and cups in different weather conditions eg. sun position, haze, rain.
@@ -221,7 +221,7 @@ Evaluate the performance of a non-robust resnet50 model from torchvision
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data_all ./experiments/changing_weather/cup_mug/non_robust/changing_weather.yaml ./experiments/changing_weather/cup_mug/non_robust/results 5555
+threedb_master data_all ./experiments/changing_weather/ten_objects/non_robust/changing_weather.yaml ./experiments/changing_weather/ten_objects/non_robust/results 5555
 ```
 *Run in second terminal*
 ```
@@ -231,7 +231,7 @@ threedb_workers 1 data_all 5555
 *To analyse:*
 ```
 conda activate threedb
-python -m threedboard ./experiments/changing_weather/cup_mug/non_robust/results
+python -m threedboard ./experiments/changing_weather/ten_objects/non_robust/results
 ```
 **Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
 
@@ -240,7 +240,7 @@ run_all.sh automates the evaluation of all 3 robust models and the renaming of d
 Run the following command: (Takes ~45 minutes per 3D model) 
 ```
 cd 3DB
-bash experiments/changing_weather/cup_mug/robust/run_all.sh
+bash experiments/changing_weather/ten_objects/robust/run_all.sh
 ```
 
 *Debugging*
@@ -260,7 +260,7 @@ Evaluate the performance of a non-robust resnet50 model from torchvision
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data_new ./experiments/changing_viewpoints/cup_mug/non_robust/changing_viewpoints.yaml ./experiments/changing_viewpoints/cup_mug/non_robust/results2 5555
+threedb_master data_new ./experiments/changing_viewpoints/ten_objects/non_robust/changing_viewpoints.yaml ./experiments/changing_viewpoints/ten_objects/non_robust/results2 5555
 ```
 *Run in second terminal*
 ```
@@ -270,7 +270,7 @@ threedb_workers 1 data_new 5555
 *To analyse:*
 ```
 conda activate threedb
-python -m threedboard ./experiments/changing_viewpoints/cup_mug/non_robust/results2
+python -m threedboard ./experiments/changing_viewpoints/ten_objects/non_robust/results2
 ```
 **Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
 
@@ -279,7 +279,7 @@ run_all.sh automates the evaluation of all 3 robust models and the renaming of d
 Run the following command: (Takes ~5 minutes per 3D model-ML) 
 ```
 cd 3DB
-bash experiments/changing_viewpoints/cup_mug/robust/run_all_new.sh
+bash experiments/changing_viewpoints/ten_objects/robust/run_all_new.sh
 ```
 ### 2. Changing Weather Conditions
 Investigating if pixel perturbation robust models perform better on images of mugs and cups in different weather conditions eg. sun position, haze, rain.
@@ -293,7 +293,7 @@ Evaluate the performance of a non-robust resnet50 model from torchvision
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data_new ./experiments/changing_weather/cup_mug/non_robust/changing_weather.yaml ./experiments/changing_weather/cup_mug/non_robust/results2 5555
+threedb_master data_new ./experiments/changing_weather/ten_objects/non_robust/changing_weather.yaml ./experiments/changing_weather/ten_objects/non_robust/results2 5555
 ```
 *Run in second terminal*
 ```
@@ -303,7 +303,7 @@ threedb_workers 1 data_new 5555
 *To analyse:*
 ```
 conda activate threedb
-python -m threedboard ./experiments/changing_weather/cup_mug/non_robust/results2
+python -m threedboard ./experiments/changing_weather/ten_objects/non_robust/results2
 ```
 **Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
 
@@ -312,7 +312,7 @@ run_all.sh automates the evaluation of all 3 robust models and the renaming of d
 Run the following command: (Takes ~45 minutes per 3D model) 
 ```
 cd 3DB
-bash experiments/changing_weather/cup_mug/robust/run_all_new.sh
+bash experiments/changing_weather/ten_objects/robust/run_all_new.sh
 ```
 
 ## Tug boat
@@ -346,7 +346,7 @@ run_all.sh automates the evaluation of all 3 robust models and the renaming of d
 Run the following command: (Takes ~5 minutes per 3D model-ML) 
 ```
 cd 3DB
-bash experiments/changing_viewpoints/cup_mug/robust/run_all_new.sh
+bash experiments/changing_viewpoints/ten_objects/robust/run_all_new.sh
 ```
 
 ### 2. Changing Weather Conditions
