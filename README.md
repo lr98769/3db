@@ -153,7 +153,7 @@ python -m threedboard unit_tests/load_model/results
 ```
 
 ## Combined
-Example of how all 4 modules can be used together.
+Example of how all 5 modules can be used together.
 Analysis folder contains a jupter notebook with useful functions for model analysis.
 
 *Run in first terminal*
@@ -178,7 +178,7 @@ Setup:
 2. Download imagent_l2_3_0.pt, imagenet_linf_4.pt, imagenet_linf_8.pt to ./robust_models from https://github.com/MadryLab/robustness
 
 ### 1. Changing Viewpoints
-Investigating if pixel perturbation robust models perform better on images of mugs and cups with varying viewpoints.
+Investigating if pixel perturbation robust models perform better on images of 10 objects with varying viewpoints.
 All robust models were downloaded from https://github.com/MadryLab/robustness
 
 **To establish the baseline performance of a non-robust model:**
@@ -188,7 +188,7 @@ Evaluate the performance of a non-robust resnet50 model from torchvision
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data_all ./experiments/changing_viewpoints/cup_mug/non_robust/changing_viewpoints.yaml ./experiments/changing_viewpoints/cup_mug/non_robust/results 5555
+threedb_master data_all ./experiments/changing_viewpoints/ten_objects/non_robust/changing_viewpoints.yaml ./experiments/changing_viewpoints/ten_objects/non_robust/results 5555
 ```
 *Run in second terminal*
 ```
@@ -198,7 +198,7 @@ threedb_workers 1 data_all 5555
 *To analyse:*
 ```
 conda activate threedb
-python -m threedboard ./experiments/changing_viewpoints/cup_mug/non_robust/results
+python -m threedboard ./experiments/changing_viewpoints/ten_objects/non_robust/results
 ```
 **Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
 
@@ -207,10 +207,10 @@ run_all.sh automates the evaluation of all 3 robust models and the renaming of d
 Run the following command: (Takes ~5 minutes per 3D model) 
 ```
 cd 3DB
-bash experiments/changing_viewpoints/cup_mug/robust/run_all.sh
+bash experiments/changing_viewpoints/ten_objects/robust/run_all.sh
 ```
 ### 2. Changing Weather Conditions
-Investigating if pixel perturbation robust models perform better on images of mugs and cups in different weather conditions eg. sun position, haze, rain.
+Investigating if pixel perturbation robust models perform better on images of 10 objects in different weather conditions eg. sun position, haze, rain.
 
 All robust models were downloaded from https://github.com/MadryLab/robustness
 
@@ -221,7 +221,7 @@ Evaluate the performance of a non-robust resnet50 model from torchvision
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data_all ./experiments/changing_weather/cup_mug/non_robust/changing_weather.yaml ./experiments/changing_weather/cup_mug/non_robust/results 5555
+threedb_master data_all ./experiments/changing_weather/ten_objects/non_robust/changing_weather.yaml ./experiments/changing_weather/ten_objects/non_robust/results 5555
 ```
 *Run in second terminal*
 ```
@@ -231,7 +231,7 @@ threedb_workers 1 data_all 5555
 *To analyse:*
 ```
 conda activate threedb
-python -m threedboard ./experiments/changing_weather/cup_mug/non_robust/results
+python -m threedboard ./experiments/changing_weather/ten_objects/non_robust/results
 ```
 **Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
 
@@ -240,7 +240,7 @@ run_all.sh automates the evaluation of all 3 robust models and the renaming of d
 Run the following command: (Takes ~45 minutes per 3D model) 
 ```
 cd 3DB
-bash experiments/changing_weather/cup_mug/robust/run_all.sh
+bash experiments/changing_weather/ten_objects/robust/run_all.sh
 ```
 
 *Debugging*
@@ -248,10 +248,21 @@ bash experiments/changing_weather/cup_mug/robust/run_all.sh
 2. If you use anaconda instead of miniconda3, replace "~/miniconda3/etc/profile.d/conda.sh"  in line 17 of run_all.sh with the correct directory to conda.sh
 
 
-### Run more 3D models
-### 1. Changing Viewpoints
-Investigating if pixel perturbation robust models perform better on images of mugs and cups with varying viewpoints.
+### To run more 3D models for the above two experiments
+#### 1. Changing Viewpoints
+
+Investigating if pixel perturbation robust models perform better on images of the new objects with varying viewpoints.
 All robust models were downloaded from https://github.com/MadryLab/robustness
+
+*Before running the steps below:*
+1. Include the new 3D models (in .blend format) in `data_new/blender_models` 
+2. Assign the correct class number (ImageNet class number) to the 3D model in `resources/ycb_to_IN.json` (Refer to the json list in `resources/imagenet_mapping.json` for class number)
+
+*Debugging*
+1. If an error of this form appears, `KeyError: 'bby_prop_collection[key]: key "___" not found`, open the object .blend file and check that there is only one object in the .blend file and it is has the same name as the file name (without the .blend extension). 
+    * If the object is made of multiple components, join them in blender with Ctrl-J
+    * If the object does not have the same name as the filename, rename it by clicking on the component's name in the top right hand corner of the screen and typing the file name. 
+2. If an error of this form appears, `label = self.uid_to_targets[model_uid] KeyError: '025_mug'`, make sure you assign the class number to the 3D model in `resources/ycb_to_IN.json` correctly.  
 
 **To establish the baseline performance of a non-robust model:**
 
@@ -260,7 +271,7 @@ Evaluate the performance of a non-robust resnet50 model from torchvision
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data_new ./experiments/changing_viewpoints/cup_mug/non_robust/changing_viewpoints.yaml ./experiments/changing_viewpoints/cup_mug/non_robust/results2 5555
+threedb_master data_new ./experiments/changing_viewpoints/ten_objects/non_robust/changing_viewpoints.yaml ./experiments/changing_viewpoints/ten_objects/non_robust/results2 5555
 ```
 *Run in second terminal*
 ```
@@ -270,21 +281,32 @@ threedb_workers 1 data_new 5555
 *To analyse:*
 ```
 conda activate threedb
-python -m threedboard ./experiments/changing_viewpoints/cup_mug/non_robust/results2
+python -m threedboard ./experiments/changing_viewpoints/ten_objects/non_robust/results2
 ```
 **Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
 
-run_all.sh automates the evaluation of all 3 robust models and the renaming of detail.log files.
+run_all.sh automates the evaluation of all 3 robust models and the renaming of details.log files.
 
 Run the following command: (Takes ~5 minutes per 3D model-ML) 
 ```
 cd 3DB
-bash experiments/changing_viewpoints/cup_mug/robust/run_all_new.sh
+bash experiments/changing_viewpoints/ten_objects/robust/run_all_new.sh
 ```
 ### 2. Changing Weather Conditions
-Investigating if pixel perturbation robust models perform better on images of mugs and cups in different weather conditions eg. sun position, haze, rain.
+Investigating if pixel perturbation robust models perform better on images of new objects in different weather conditions eg. sun position, haze, rain.
 
 All robust models were downloaded from https://github.com/MadryLab/robustness
+
+
+*Before running the steps below:*
+1. Include the new 3D models (in .blend format) in `data_new/blender_models` 
+2. Assign the correct class number (ImageNet class number) to the 3D model in `resources/ycb_to_IN.json` (Refer to the json list in `resources/imagenet_mapping.json` for class number)
+
+*Debugging*
+1. If an error of this form appears, `KeyError: 'bby_prop_collection[key]: key "___" not found`, open the object .blend file and check that there is only one object in the .blend file and it is has the same name as the file name (without the .blend extension). 
+    * If the object is made of multiple components, join them in blender with Ctrl-J
+    * If the object does not have the same name as the filename, rename it by clicking on the component's name in the top right hand corner of the screen and typing the file name. 
+2. If an error of this form appears, `label = self.uid_to_targets[model_uid] KeyError: '025_mug'`, make sure you assign the class number to the 3D model in `resources/ycb_to_IN.json` correctly.  
 
 **To establish the baseline performance of a non-robust model:**
 
@@ -293,7 +315,7 @@ Evaluate the performance of a non-robust resnet50 model from torchvision
 *Run in first terminal*
 ```
 conda activate threedb
-threedb_master data_new ./experiments/changing_weather/cup_mug/non_robust/changing_weather.yaml ./experiments/changing_weather/cup_mug/non_robust/results2 5555
+threedb_master data_new ./experiments/changing_weather/ten_objects/non_robust/changing_weather.yaml ./experiments/changing_weather/ten_objects/non_robust/results2 5555
 ```
 *Run in second terminal*
 ```
@@ -303,7 +325,7 @@ threedb_workers 1 data_new 5555
 *To analyse:*
 ```
 conda activate threedb
-python -m threedboard ./experiments/changing_weather/cup_mug/non_robust/results2
+python -m threedboard ./experiments/changing_weather/ten_objects/non_robust/results2
 ```
 **Evaluate performance of robust models: Evaluate the performance of a robust resnet50 model**
 
@@ -312,12 +334,12 @@ run_all.sh automates the evaluation of all 3 robust models and the renaming of d
 Run the following command: (Takes ~45 minutes per 3D model) 
 ```
 cd 3DB
-bash experiments/changing_weather/cup_mug/robust/run_all_new.sh
+bash experiments/changing_weather/ten_objects/robust/run_all_new.sh
 ```
 
 ## Tug boat
 ### 1. Changing Viewpoints
-Investigating if pixel perturbation robust models perform better on images of mugs and cups with varying viewpoints.
+Investigating if pixel perturbation robust models perform better on images of tugboats with varying viewpoints.
 All robust models were downloaded from https://github.com/MadryLab/robustness
 
 **To establish the baseline performance of a non-robust model:**
@@ -346,11 +368,11 @@ run_all.sh automates the evaluation of all 3 robust models and the renaming of d
 Run the following command: (Takes ~5 minutes per 3D model-ML) 
 ```
 cd 3DB
-bash experiments/changing_viewpoints/cup_mug/robust/run_all_new.sh
+bash experiments/changing_viewpoints/ten_objects/robust/run_all_new.sh
 ```
 
 ### 2. Changing Weather Conditions
-Investigating if pixel perturbation robust models perform better on images of mugs and cups in different weather conditions eg. sun position, haze, rain.
+Investigating if pixel perturbation robust models perform better on images of tugboats in different weather conditions eg. sun position, haze, rain.
 
 All robust models were downloaded from https://github.com/MadryLab/robustness
 
@@ -382,28 +404,6 @@ Run the following command: (Takes ~45 minutes per 3D model)
 cd 3DB
 bash tugboat/changing_weather/robust/run_all.sh
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Citation
