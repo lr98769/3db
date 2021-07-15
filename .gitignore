@@ -1,10 +1,9 @@
-data/blender_environments/studioX_Stage.blend
 custom_controls/__pycache__
 custom_model/__pycache__
-combined/analysis/.ipynb_checkpoints
 .vscode
 .ipynb_checkpoints
 robust_models
+data/blender_environments/studioX_Stage.blend
 data_all/blender_environments/studioX_Stage.blend
 data_new/blender_environments/studioX_Stage.blend
 data_all/blender_models/toygun.blend
